@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "book-bug"
+  author: "Norah Jones"
+  date: "11/7/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  titlepage-pdf:
+    documentclass: scrreprt
+    keep-tex: true
+    titlepage: formal
+    include-in-header: 
+      text: |
+        \usepackage{setspace}
+
+
