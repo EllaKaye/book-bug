@@ -1,13 +1,9 @@
-# Acknowledgments {.unnumbered}
+# Introduction
 
-Thank you to my supervisors.
+This is a book created from markdown and executable code.
 
-\newpage
+See @knuth84 for additional discussion of literate programming.
 
-# Abstract {.unnumbered}
-
-\begin{singlespace}
-
-I wrote a thesis!
-
-\end{singlespace}
+```{r}
+1 + 1
+```

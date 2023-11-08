@@ -5,7 +5,8 @@
 %
 \documentclass[
   letterpaper,
-]{scrreprt}
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -50,6 +51,7 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -149,7 +151,7 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\usepackage{setspace}
+\KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
@@ -194,33 +196,6 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-
-\usepackage{hyphenat}
-\usepackage{ifthen}
-\usepackage{calc}
-\usepackage{calculator}
-
-
-
-\usepackage{graphicx}
-\usepackage{geometry}
-\usepackage{afterpage}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\usetikzlibrary{fadings}
-\usepackage[pagecolor=none]{pagecolor}
-
-
-% Set the titlepage font families
-
-
-
-
-
-
-
-% Set the coverpage font families
-
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -229,7 +204,7 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={book-bug},
-  pdfauthor={Norah Jones},
+  pdfauthor={Ella Kaye},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -238,165 +213,17 @@
   pdfcreator={LaTeX via pandoc}}
 
 \title{book-bug}
-\author{Norah Jones}
-\date{2023-11-07}
+\author{Ella Kaye}
+\date{}
 
 \begin{document}
-%%%%% begin titlepage extension code
-
-
-\begin{titlepage}
-
-%%% TITLE PAGE START
-
-% Set up alignment commands
-%Page
-\newcommand{\titlepagepagealign}{
-\ifthenelse{\equal{center}{right}}{\raggedleft}{}
-\ifthenelse{\equal{center}{center}}{\centering}{}
-\ifthenelse{\equal{center}{left}}{\raggedright}{}
-}
-
-
-\newcommand{\titleandsubtitle}{
-% Title and subtitle
-{{\Huge{\textbf{\nohyphens{book-bug}}}}\par
-}%
-}
-\newcommand{\titlepagetitleblock}{
-\titleandsubtitle
-}
-
-\newcommand{\authorstyle}[1]{{\textbf{#1}}}
-
-\newcommand{\affiliationstyle}[1]{{\large{#1}}}
-
-\newcommand{\titlepageauthorblock}{
-{\authorstyle{\nohyphens{Norah Jones}\\}}
-}
-
-\newcommand{\titlepageaffiliationblock}{
-\hangindent=1em
-\hangafter=1
-{\affiliationstyle{
-
-
-\vspace{1\baselineskip} 
-}}
-}
-\newcommand{\headerstyled}{%
-{}
-}
-\newcommand{\footerstyled}{%
-{\Large{\textsc{}}}
-}
-\newcommand{\datestyled}{%
-{2023-11-07}
-}
-
-
-\newcommand{\titlepageheaderblock}{\headerstyled}
-
-\newcommand{\titlepagefooterblock}{
-\footerstyled
-}
-
-\newcommand{\titlepagedateblock}{
-\datestyled
-}
-
-%set up blocks so user can specify order
-\newcommand{\titleblock}{{
-
-{\titlepagetitleblock}
-}
-
-\vspace{1.5cm}
-}
-
-\newcommand{\authorblock}{{\titlepageauthorblock}
-
-\vspace{2\baselineskip}
-}
-
-\newcommand{\affiliationblock}{{\titlepageaffiliationblock}
-
-\vspace{1pt}
-}
-
-\newcommand{\logoblock}{}
-
-\newcommand{\footerblock}{}
-
-\newcommand{\dateblock}{{\titlepagedateblock}
-
-\vspace{0pt}
-}
-
-\newcommand{\headerblock}{}
-
-\thispagestyle{empty} % no page numbers on titlepages
-
-
-\newlength{\minipagewidth}
-\setlength{\minipagewidth}{\textwidth}
-\raggedright % single minipage
-% [position of box][box height][inner position]{width}
-% [s] means stretch out vertically; assuming there is a vfill
-\begin{minipage}[b][\textheight][s]{\minipagewidth}
-\titlepagepagealign
-\titleblock
-
-\authorblock
-
-\vfill
-
-A report presented at the annual\\meeting on 10 August 2025\\ \vspace{0.8cm}
-
-\logoblock
-
-\footerblock
-\par
-
-\end{minipage}\ifthenelse{\equal{}{right} \OR \equal{}{leftright} }{
-\hspace{\B}
-\vrulecode}{}
-\clearpage
-%%% TITLE PAGE END
-\end{titlepage}
-\setcounter{page}{1}
-
-%%%%% end titlepage extension code
+\maketitle
 \renewcommand*\contentsname{Table of contents}
 {
 \hypersetup{linkcolor=}
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\bookmarksetup{startatroot}
-
-\chapter*{Acknowledgments}\label{acknowledgments}
-\addcontentsline{toc}{chapter}{Acknowledgments}
-
-\markboth{Acknowledgments}{Acknowledgments}
-
-Thank you to my supervisors.
-
-\newpage
-
-\bookmarksetup{startatroot}
-
-\chapter*{Abstract}\label{abstract}
-\addcontentsline{toc}{chapter}{Abstract}
-
-\markboth{Abstract}{Abstract}
-
-\begin{singlespace}
-
-I wrote a thesis!
-
-\end{singlespace}
-
 \bookmarksetup{startatroot}
 
 \chapter{Introduction}\label{introduction}
@@ -417,26 +244,25 @@ See Knuth (1984) for additional discussion of literate programming.
 
 \bookmarksetup{startatroot}
 
-\chapter{Summary}\label{summary}
-
-In summary, this book has no content whatsoever.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{1} \SpecialCharTok{+} \DecValTok{1}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 2
-\end{verbatim}
-
-\bookmarksetup{startatroot}
-
 \chapter*{References}\label{references}
 \addcontentsline{toc}{chapter}{References}
 
 \markboth{References}{References}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{Appendices}
+\appendix
+
+\chapter*{Code}\label{code}
+\addcontentsline{toc}{chapter}{Code}
+
+\markboth{Code}{Code}
+
+The code associated with this project is at
+\url{https://github.com/EllaKaye}
+
+This should be after the references, but is showing up before.
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
